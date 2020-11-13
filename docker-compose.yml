@@ -11,8 +11,7 @@ services:
     depends_on: 
       - db
     environment: 
-      -
-DATABASE_URL=postgres://postgres:password@db:5432/practicedocker
+      - DATABASE_URL=postgres://postgres:password@db:5432/practicedocker
       - PORT=3000
   db:
     image: postgres
