@@ -1,6 +1,6 @@
 # Automatically generate a release when pushes are put in master
 # name of tag/release is also the value in the secret variable version in repo
-name: "pre-release"
+name: "tagged release"
 
 on:
   push:
@@ -22,8 +22,5 @@ jobs:
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           automatic_release_tag: "latest"
-          prerelease: true
+          prerelease: false
           title: "Development Build"
-          files: |
-            LICENSE.txt
-            *.jar
