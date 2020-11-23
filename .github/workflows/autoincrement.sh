@@ -1,4 +1,4 @@
-#!bin/bash
+#!/bin/bash
 
 # if [ $1 ] ;then  
 #     var=$(cat input.txt)
@@ -9,4 +9,4 @@
 #   echo "1.1.0" < input.txt
 # fi
 
-echo "v1.1.0"
+echo "::set-env name=VERSION::19.2.5"
