@@ -9,6 +9,7 @@ on:
 
 env:
   version_number: "v0.0.1"
+  ACTIONS_ALLOW_UNSECURE_COMMANDS: true
 
 jobs:
   tagged-release:
