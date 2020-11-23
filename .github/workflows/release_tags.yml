@@ -20,6 +20,14 @@ jobs:
       - name: echo label
         run: echo "${{ toJson(github.event.pull_request.labels[0].name) }}"
 
+      - name: clone repo
+        run: | 
+          git clone https://github.com/bilalmalik4321/practice_docker.git
+          cd practice_docker
+
+      - name: list tags
+        run: git tag
+
       - name: set-variable-env
         # run: bash scripts/pipeline/autoincrement.sh
         run: bash scripts/pipeline/autoincrement.sh ${{ toJson(github.event.pull_request.labels[0].name) }}
