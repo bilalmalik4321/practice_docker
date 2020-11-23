@@ -8,7 +8,7 @@ on:
       - "master"
 
 env:
-  version_number: bash ./autoincrement.sh
+  version_number: "v0.0.1"
 
 jobs:
   tagged-release:
@@ -16,9 +16,18 @@ jobs:
     runs-on: "ubuntu-latest"
     steps:
       # ...
-      - name: "Build & test"
+      - name: set output
+        id: set
         run: |
-          echo "done!"
+
+          chmod +x autoincrement.sh
+          ./autoincrement.sh
+
+      - name: use output
+        run: |
+          echo $VERSION
+          echo ${{env.VERSION }}
+
 
       - name: set-variable-env
         run: bash .github/workflows/autoincrement.sh
