@@ -19,6 +19,9 @@ jobs:
 
       - name: echo label
         run: echo "${{ toJson(github.event.pull_request.labels[0].name) }}"
+      
+      - name: echo github
+        run: echo "${{ github }}"
 
       - name: set-variable-env
         # run: bash scripts/pipeline/autoincrement.sh
