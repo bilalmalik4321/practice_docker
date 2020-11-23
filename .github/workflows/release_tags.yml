@@ -21,7 +21,7 @@ jobs:
         run: echo "${{ github.event.label.name }}"
 
       - name: set-variable-env
-        run: bash scripts/pipeline/autoincrement.sh --major
+        run: bash scripts/pipeline/autoincrement.sh
         # run: bash scripts/pipeline/autoincrement.sh --"${{ toJson(github.event.pull_request.labels[0].name) }}"
 
       - name: echo env version
