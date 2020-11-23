@@ -18,7 +18,10 @@ jobs:
       # ...
 
       - name: set-variable-env
-        run: bash scripts/pipeline/autoincrement.sh
+        run: |
+
+          chmod +x scripts/pipeline/autoincrement.sh
+          bash scripts/pipeline/autoincrement.sh
 
       - name: set output
         id: set
