@@ -7,20 +7,25 @@ on:
     branches:
       - "master"
 
+env:
+  version_number: bash ./autoincrement.sh
+
 jobs:
   tagged-release:
     name: "Tagged Release"
     runs-on: "ubuntu-latest"
-
     steps:
       # ...
       - name: "Build & test"
         run: |
           echo "done!"
 
+      - name: set-variable-env
+        run: bash ./autoincrement.sh
+
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          automatic_release_tag: "late"
+          automatic_release_tag: "${{env.version_number}}"
           prerelease: false
           title: "Development Build"
