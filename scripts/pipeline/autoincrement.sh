@@ -1,5 +1,6 @@
 #!/bin/bash
 
+
 # get latest tag
 CURTAG=`git describe --abbrev=0 --tags`;
 CURTAG="${CURTAG/v/}"
