@@ -21,7 +21,7 @@ jobs:
           echo "done!"
 
       - name: set-variable-env
-        run: bash ./autoincrement.sh
+        run: bash .github/workflows/autoincrement.sh
 
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
