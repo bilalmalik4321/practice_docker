@@ -18,11 +18,11 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: echo label
-        run: echo "${{ github.event.label.name }}"
+        run: echo "${{ toJson(github.event.pull_request.labels[0].name) }}"
 
       - name: set-variable-env
-        run: bash scripts/pipeline/autoincrement.sh
-        # run: bash scripts/pipeline/autoincrement.sh --"${{ toJson(github.event.pull_request.labels[0].name) }}"
+        # run: bash scripts/pipeline/autoincrement.sh
+        run: bash scripts/pipeline/autoincrement.sh --"${{ toJson(github.event.pull_request.labels[0].name) }}"
 
       - name: echo env version
         run: echo ${{env.VERSION}}
