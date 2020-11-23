@@ -16,9 +16,10 @@ jobs:
     runs-on: "ubuntu-latest"
     steps:
       # ...
+      - uses: actions/checkout@v2
 
       - name: set-variable-env
-        run: ./autoincrement.sh
+        run: bash script/pipeline/autoincrement.sh
 
       - name: set output
         id: set
