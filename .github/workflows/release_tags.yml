@@ -16,10 +16,7 @@ jobs:
     runs-on: "ubuntu-latest"
     steps:
       - uses: actions/checkout@v2
-
-      - name: echo label
-        run: echo "${{ toJson(github.event.pull_request.labels[0].name) }}"
-
+      
       - name: clone repo, get latest tag, and use to increment
         run: | 
           git clone https://github.com/bilalmalik4321/practice_docker.git
