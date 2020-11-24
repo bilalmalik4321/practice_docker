@@ -26,18 +26,7 @@ jobs:
           cd practice_docker
           file="$(git tag)"
           echo $file
-
-      # - name: list tags
-      #   run: |
-      #     file="$(git tag)"
-      #     echo $file
-
-      - name: list tags
-        run: bash scripts/pipeline/getTags.sh
-
-      - name: set-variable-env
-        # run: bash scripts/pipeline/autoincrement.sh
-        run: bash scripts/pipeline/autoincrement.sh ${{ toJson(github.event.pull_request.labels[0].name) }}
+          bash scripts/pipeline/autoincrement.sh ${{ toJson(github.event.pull_request.labels[0].name) }}
 
       - name: echo env version
         run: echo ${{env.VERSION}}
