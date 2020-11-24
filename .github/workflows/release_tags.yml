@@ -20,16 +20,13 @@ jobs:
       - name: echo label
         run: echo "${{ toJson(github.event.pull_request.labels[0].name) }}"
 
-      - name: clone repo
+      - name: clone repo, get latest tag, and use to increment
         run: | 
           git clone https://github.com/bilalmalik4321/practice_docker.git
           cd practice_docker
           file="$(git tag)"
           echo $file
           bash scripts/pipeline/autoincrement.sh ${{ toJson(github.event.pull_request.labels[0].name) }}
-
-      - name: echo env version
-        run: echo ${{env.VERSION}}
 
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
