@@ -3,9 +3,9 @@
 name: "tagged release"
 
 on:
-  push:
+  pull_request:
     branches:
-      - "master"
+      - master
 
 env:
   ACTIONS_ALLOW_UNSECURE_COMMANDS: true
@@ -16,16 +16,14 @@ jobs:
     runs-on: "ubuntu-latest"
     steps:
       - uses: actions/checkout@v2
-
-      - name: echo label
-        run: echo "${{ github.event.label.name }}"
-
-      - name: set-variable-env
-        # run: bash scripts/pipeline/autoincrement.sh
-        run: bash scripts/pipeline/autoincrement.sh --"${{ toJson(github.event.pull_request.labels[0].name) }}"
-
-      - name: echo env version
-        run: echo ${{env.VERSION}}
+      
+      - name: clone repo, get latest tag, and use to increment
+        run: | 
+          git clone https://github.com/bilalmalik4321/practice_docker.git
+          cd practice_docker
+          file="$(git tag)"
+          echo $file
+          bash scripts/pipeline/autoincrement.sh ${{ toJson(github.event.pull_request.labels[0].name) }}
 
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
