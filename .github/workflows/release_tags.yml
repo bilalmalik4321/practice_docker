@@ -24,11 +24,13 @@ jobs:
         run: | 
           git clone https://github.com/bilalmalik4321/practice_docker.git
           cd practice_docker
-
-      - name: list tags
-        run: |
           file="$(git tag)"
           echo $file
+
+      # - name: list tags
+      #   run: |
+      #     file="$(git tag)"
+      #     echo $file
 
       - name: list tags
         run: bash scripts/pipeline/getTags.sh
