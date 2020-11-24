@@ -26,7 +26,7 @@ jobs:
           cd practice_docker
 
       - name: list tags
-        run: echo git tag
+        run: echo $(git tag)
 
       - name: set-variable-env
         # run: bash scripts/pipeline/autoincrement.sh
