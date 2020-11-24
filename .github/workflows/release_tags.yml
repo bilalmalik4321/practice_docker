@@ -1,3 +1,5 @@
+# Author: Bilal Malik
+# Date: November 24, 2020
 # Automatically generate a release when pushes are put in master
 # name of tag/release is also the value in the secret variable version in repo
 name: "tagged release"
@@ -16,7 +18,7 @@ jobs:
     runs-on: "ubuntu-latest"
     steps:
       - uses: actions/checkout@v2
-      
+
       - name: clone repo, get latest tag, and use to increment
         run: | 
           git clone https://github.com/bilalmalik4321/practice_docker.git
