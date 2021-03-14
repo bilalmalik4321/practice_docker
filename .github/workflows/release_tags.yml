@@ -1,3 +1,5 @@
+# Author: Bilal Malik
+# Date: March, 14, 2021
 # Automatically generate a release when pushes are put in master
 # name of tag/release is also the value in the secret variable version in repo
 name: "tagged release"
